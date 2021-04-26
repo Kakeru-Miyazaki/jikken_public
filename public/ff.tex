@@ -1,0 +1,45 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+\begin{document}
+
+\tikzset{ff_cheat/.style={flipflop, flipflop def={
+  t1=S, t2={2}, c3=1, t4={4},t5={5},t6={6},nu=1}},
+}
+
+\tikzset{ff/.style={flipflop, flipflop def={
+  t1={D}, t2={}, c3=1, t4={},t5={},t6={Q},clock wedge size=.3, nd=0}},
+}
+
+
+\begin{figure}[h]
+  \begin{center}
+    \begin{tikzpicture}[american currents]
+      %\node[flipflop D]{FF};
+      \node[ff](FF1){FF};
+      \node[not gate US, draw, rotate=180] at ($(FF1.pin 1)!0.5!(FF1.pin 6)+(0,1)$) (Not) {};
+      \draw (FF1.pin 1) -- ++ (-0.15,0)
+      to[short]++(0,1);
+      \draw (FF1.pin 6) -- ++ (0.15,0)
+      to[short]++(0,1)
+      to[short](Not.input);
+      \draw (Not.output)
+      to[short]($(FF1.pin 1) + (-0.15,1)$);
+      \draw($(FF1.down)$)
+      to[short,a=rst]++(0,-0.1);
+      \draw($(FF1.pin 3)$)
+      to[short,a=clk]++(-0.15,0);
+      \draw($(FF1.down)$)
+      to[short]++(0,0.29);
+    \end{tikzpicture}
+  \end{center}
+   \caption{}
+\end{figure}
+
+
+\end{document}
