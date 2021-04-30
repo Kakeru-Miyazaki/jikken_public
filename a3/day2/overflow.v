@@ -4,7 +4,7 @@ module overflow (
     input wire [3:0]inA,
     input wire [3:0]inB,
     //input wire cin,
-    output wire [6:0]s1,
+    output wire [4:0]s1,
     output wire [3:0]s2,
     output wire cout
 );

@@ -10,7 +10,7 @@ module testbench;
     reg [3:0]inA;
     reg [3:0]inB;
     
-    wire [6:0]s1;
+    wire [4:0]s1;
     wire [3:0]s2;
     wire cout;
 
@@ -35,7 +35,7 @@ module testbench;
     // test scenario
     initial begin
         // initialize
-        inA = 4'd0; inB = 4'd0;
+        inA = 4'd0; inB = 4'd0; 
         
         
         
