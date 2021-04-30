@@ -16,7 +16,6 @@ module testbench;
     rippleadder4bit rippleadder4bit_0 (
         .inA(inA),
         .inB(inB),
-        //.cin(cin),
         .s(s),
         .cout(c)
     );
@@ -32,8 +31,6 @@ module testbench;
     initial begin
         // initialize
         inA = 4'd0; inB = 4'd0;
-        
-        
         
         // for rippleadder4bit
         inA = 4'd0; inB = 4'd0;

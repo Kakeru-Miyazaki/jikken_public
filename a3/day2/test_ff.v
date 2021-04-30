@@ -7,7 +7,6 @@ module testbench;
     
     // wire/reg
     reg clk;
-    //reg D, rst;
     reg rst;
     wire D;
     wire Qout_flipflop;
@@ -34,14 +33,10 @@ module testbench;
         rst = 1'b0;
         
         // for flipflop
-        //D = 1'b0; rst = 1'b0;
         #100 $display("D=%b rst=%b out=%b", D, rst, Qout_flipflop);
         rst = 1'b1;
         #150 $display("D=%b rst=%b out=%b", D, rst, Qout_flipflop);  
         rst = 1'b0;
-        //#600 $display("D=%b rst=%b out=%b", D, rst, out_flipflop);  
-        //D = 1'b1; rst = 1'b0;
-        //#700 $display("D=%b rst=%b out=%b", D, rst, out_flipflop);
 
         repeat(10) @(posedge clk); // repeat 10 times
         $finish;

@@ -28,10 +28,7 @@ module testbench;
     // test scenario
     initial begin
         // initialize
-        //rst = 1'b0;
         d = 1'b0;
-        // for flipflop
-        //D = 1'b0; rst = 1'b0;
         #100 $display("D=%b out=%b", d,Qout_flipflop);
         d = 1'b1;
         #25 $display("D=%b out=%b", d, Qout_flipflop);  
@@ -58,10 +55,7 @@ module testbench;
         d = 1'b1;
         #70 $display("D=%b out=%b", d,Qout_flipflop);
         d = 1'b0;
-        //#600 $display("D=%b rst=%b out=%b", D, rst, out_flipflop);  
-        //D = 1'b1; rst = 1'b0;
-        //#700 $display("D=%b rst=%b out=%b", D, rst, out_flipflop);
-
+        
         repeat(10) @(posedge clk); // repeat 10 times
         $finish;
     end

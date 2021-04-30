@@ -33,8 +33,6 @@ module testbench;
         // initialize
         inA = 4'd0; inB = 4'd0;
         
-        
-        
         // for adder4bit
         inA = 4'd0; inB = 4'd0;
         for (integer i=0;i<16;i=i+1) begin
