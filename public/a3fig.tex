@@ -12,7 +12,7 @@
 
 剽窃判定怖いので、\textbf{コピペする場合は引用付けてほしい}ですが、ちょっといじった場合でも参考文献でつけてくれたら神様！ってなります。
 
-レポートのサイズと部品のサイズが合わない場合は（ほとんどがそうだと思いますが、\textbackslash scalebox\{1\}の1を好きな倍率に変えてください。）
+レポートのサイズと部品のサイズが合わない場合は（ほとんどがそうだと思いますが、)\textbackslash scalebox\{1\}の1を好きな倍率に変えてください。
 
 
 %---以下FF------------------------------------------------
@@ -124,10 +124,10 @@
                   \endpgfextra}},
         ]
 
-        \node[alu] (alu3) at(0,0) {Adder\,3};
-        \node[alu] (alu2) at(3.5,0) {Adder\,2};
-        \node[alu] (alu1) at(7,0) {Adder\,1};
-        \node[alu] (alu0) at(10.5,0) {Adder\,0};
+        \node[alu] (alu3) at(0,0) {full-adder\,3};
+        \node[alu] (alu2) at(3.5,0) {full-adder\,2};
+        \node[alu] (alu1) at(7,0) {full-adder\,1};
+        \node[alu] (alu0) at(10.5,0) {full-adder\,0};
 
         \draw (alu0.south) -- ++(-90:5mm) node [below] (out) {s[0]};
         \draw (alu0.0) -- ++(0:5mm) node  [right] {c[0]};
