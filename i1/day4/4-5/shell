@@ -1,0 +1,2 @@
+#!bin/bash
+sox ./../../sound/doremi.wav -t raw -c 1 - | ./bandpass.out 8192 800 1000 | play -t raw -b 16 -c 1 -e s -r 44100 -
