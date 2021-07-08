@@ -1,0 +1,3 @@
+#! /bin/bash
+PATH="`pwd`" 
+~/fefss/send/serv_send.out $1 < "$PATH"/$1

@@ -1,0 +1,13 @@
+12
+letsnote 192.168.2.118
+thinkpad 192.168.2.117
+surface 172.23.115.91
+letsnote_ist 157.82.205.225
+letsnote_hiroo 192.168.1.24
+thinkpad_ist 157.82.204.97
+kakerutmp 192.168.2.129
+hirata 192.168.2.141
+surface_windows 192.168.2.138
+surface_wsl 172.20.52.104
+surface_ist_win 157.82.205.204
+juni 157.82.203.187

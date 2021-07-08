@@ -1,0 +1,11 @@
+#!bin/bash
+cd ~/fefss/data
+tail -n +2 ipdata.txt | nl -v 0
+echo "please select the number you want to delete."
+echo -n " >> "
+read delnum
+python3 data_del.py $delnum < ipdata.txt > ipdatatmp.txt && cp ipdatatmp.txt ipdata.txt
+rm ipdatatmp.txt
+echo 
+echo "this is the newest list"
+tail -n +2 ipdata.txt | nl -v 0

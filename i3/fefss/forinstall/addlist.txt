@@ -1,0 +1,6 @@
+# >>> fefss initialize >>>
+alias fefss_send="bash ~/fefss/send/shell"
+alias fefss_recv="bash ~/fefss/recv/shell2"
+alias fefss_add="bash ~/fefss/data/data_add_shell"
+alias fefss_del="bash ~/fefss/data/data_del_shell"
+# <<< fefss initialize <<<

@@ -1,0 +1,45 @@
+#!bin/bash
+#echo -n Please tell me your username: 
+
+function my_error() {
+    # エラー処理
+    echo
+    echo "cannot uninstall... try again."
+    sleep 5
+    exit 1
+}
+
+cd ~/fefss
+echo " << FEFSS UNINSTALLING SYSTEM >>"
+echo
+function ask_yes_no {
+  while true; do
+    echo -n "$* [y/n]: "
+    read ANS
+    case $ANS in
+      [Yy]*)
+        return 0
+        ;;
+      [Nn]*)
+        return 1
+        ;;
+      *)
+        echo "please input y or n"
+        ;;
+    esac
+  done
+}
+if ask_yes_no "Do you want to uninstall FEFSS?"; then
+  # ここに「Yes」の時の処理を書く
+  echo "Yes"
+  echo "ok... just a minute."
+#  rm ~/.local/share/applications/fefss* || my_error
+  echo successfully uninstalled
+  echo "Thank you for using this app. See you next time. (creator: kakekakemiya)"
+  rm -rf ~/fefss
+else
+  # ここに「No」の時の処理を書く
+  echo "No"
+  echo "Very good choice!! Thank you!!"
+  exit 1
+fi

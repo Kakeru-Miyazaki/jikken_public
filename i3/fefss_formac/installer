@@ -1,0 +1,84 @@
+#!bin/bash
+path1=`pwd`
+cd 
+path=`pwd`
+username=`python3 $path1/forinstall/getname.py "$path"`
+
+function my_error() {
+    # エラー処理
+    echo
+    echo "Please put \"fefss\" folder below" $username "and try again."
+    sleep 2
+    exit 1
+}
+
+function my_error1() {
+    # エラー処理
+    echo
+    echo "cannot compile C programs. please install gcc."
+    sleep 2
+    exit 1
+}
+
+function my_error2() {
+    # エラー処理
+    echo
+    echo "cannot add fefsscommand in ~/.bashrc"
+    sleep 2
+    exit 1
+}
+
+function my_error3() {
+    # エラー処理
+    echo
+    echo "cannot add fefsscommand in ~/.bash_profile"
+    echo "please try \"sudo bash installer\""
+    sleep 2
+    exit 1
+}
+
+cd ~/fefss || my_error
+# rm -rf .git
+cat ~/fefss/forinstall/add_profile.txt >> ~/.bash_profile || my_error3
+cat ~/fefss/forinstall/add_profile.txt >> ~/.zprofile || my_error3
+
+echo Welcome $username
+sed -i -e "s/kakeru/$username/g" ~/fefss/recv/client_recv.c
+sed -i -e "s/kakeru/$username/g" ~/fefss/recv/client_recv_gui.c
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_recv.desktop
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_send.desktop
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_all.desktop
+cd ~/fefss/recv
+gcc -g -o client_recv.out client_recv.c || my_error1
+gcc -g -o client_recv_gui.out client_recv_gui.c 
+cd ~/fefss/send
+gcc -g -o serv_send.out serv_send.c
+gcc -g -o serv_send_gui.out serv_send_gui.c 
+cd ~/fefss/menu
+gcc -g -o menu.out menu.c
+cd ~/fefss/forinstall
+cat addlist.txt >> ~/.bashrc || my_error2
+cat addlist.txt >> ~/.zshrc || my_error2
+
+chmod +x fefss_*desktop
+cp ~/fefss/menu/FEFSS ~/Desktop/
+chmod +x ~/Desktop/FEFSS
+source ~/.bashrc
+echo successfully installed
+function ask_yes_no {
+  while true; do
+    echo -n "$* [y/n]: "
+    read ANS
+    case $ANS in
+      [Yy]*)
+        return 0
+        ;;
+      [Nn]*)
+        return 1
+        ;;
+      *)
+        echo "please input y or n"
+        ;;
+    esac
+  done
+}

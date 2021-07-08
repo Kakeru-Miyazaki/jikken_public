@@ -1,0 +1,17 @@
+#!bin/bash
+cd ~/fefss/data
+echo
+python3 data_add.py < ipdata.txt > ipdatatmp.txt
+echo "Please tell me the new IP address"
+echo -n " >> "
+read newip
+
+echo "Please tell me it's name"
+echo -n " >> "
+read newname
+echo $newname $newip >> ipdatatmp.txt
+mv ipdatatmp.txt ipdata.txt
+echo
+echo "this is the newest list"
+tail -n +2 ipdata.txt | nl -v 0
+

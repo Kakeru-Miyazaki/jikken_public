@@ -1,0 +1,43 @@
+#!bin/bash
+echo -e '\e[1m'
+
+function my_error() {
+    # エラー処理
+    echo
+    echo " " failed receieving files... \(ToT\) 
+    sleep 5
+    exit 1
+}
+
+cd ~/fefss/received_files/
+~/fefss/recv/client_recv_gui.out || my_error
+name=`cat tmpnameforfefss.txt`
+rm tmpnameforfefss.txt
+function ask_yes_no {
+  while true; do
+    echo -n "$* [y/n]: "
+    read ANS
+    case $ANS in
+      [Yy]*)
+        return 0
+        ;;
+      [Nn]*)
+        return 1
+        ;;
+      *)
+        echo "please input y or n"
+        ;;
+    esac
+  done
+}
+echo
+if ask_yes_no " Do you want to preview the file?"; then
+  # ここに「Yes」の時の処理を書く
+  echo "Yes"
+  open $name
+  sleep 10s
+else
+  # ここに「No」の時の処理を書く
+  echo "No"
+fi
+sleep 10s

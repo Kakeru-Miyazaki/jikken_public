@@ -1,0 +1,71 @@
+#!bin/bash
+path1=`pwd`
+cd 
+path=`pwd`
+username=`python3 $path1/forinstall/getname.py "$path"`
+
+function my_error() {
+    # エラー処理
+    echo
+    echo "Please put \"fefss\" folder below" $username "and try again."
+    sleep 5
+    exit 1
+}
+
+function my_error1() {
+    # エラー処理
+    echo
+    echo "cannot compile C programs. please install gcc."
+    sleep 5
+    exit 1
+}
+
+
+function my_error2() {
+    # エラー処理
+    echo
+    echo "cannot add fefsscommand in ~/.bashrc"
+    sleep 5
+    exit 1
+}
+
+cd ~/fefss || my_error
+#rm -rf .git
+
+echo Welcome $username
+sed -i -e "s/kakeru/$username/g" ~/fefss/recv/client_recv.c
+sed -i -e "s/kakeru/$username/g" ~/fefss/recv/client_recv_gui.c
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_recv.desktop
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_send.desktop
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_all.desktop
+cd ~/fefss/recv
+gcc -g -o client_recv.out client_recv.c -lm || my_error1
+gcc -g -o client_recv_gui.out client_recv_gui.c -lm
+cd ~/fefss/send
+gcc -g -o serv_send.out serv_send.c -lm
+gcc -g -o serv_send_gui.out serv_send_gui.c -lm
+cd ~/fefss/forinstall
+cat addlist.txt >> ~/.bashrc || my_error2
+source ~/.bashrc
+echo successfully installed
+
+echo "If you use right now, please do \"source ~/.bashrc\"."
+
+# echo "You have to do "source ~/.bashrc" to start this app."
+function ask_yes_no {
+  while true; do
+    echo -n "$* [y/n]: "
+    read ANS
+    case $ANS in
+      [Yy]*)
+        return 0
+        ;;
+      [Nn]*)
+        return 1
+        ;;
+      *)
+        echo "please input y or n"
+        ;;
+    esac
+  done
+}

@@ -1,0 +1,37 @@
+#!bin/bash
+function my_error() {
+    # エラー処理
+    echo
+    echo " " failed receieving files... \(ToT\)
+    sleep 5
+    exit 1
+}
+
+~/fefss/recv/client_recv.out || my_error
+name=`cat tmpnameforfefss.txt`
+rm tmpnameforfefss.txt
+function ask_yes_no {
+  while true; do
+    echo -n "$* [y/n]: "
+    read ANS
+    case $ANS in
+      [Yy]*)
+        return 0
+        ;;
+      [Nn]*)
+        return 1
+        ;;
+      *)
+        echo "please input y or n"
+        ;;
+    esac
+  done
+}
+if ask_yes_no "Do you want to open the file?"; then
+  # ここに「Yes」の時の処理を書く
+  echo "Yes"
+  explorer.exe $name
+else
+  # ここに「No」の時の処理を書く
+  echo "No"
+fi

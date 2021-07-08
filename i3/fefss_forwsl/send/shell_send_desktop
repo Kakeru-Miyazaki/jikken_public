@@ -1,0 +1,13 @@
+#!bin/bash
+echo -e '\e[1m'
+cd ~/fefss/send/
+
+echo " please drag and drop the file here and press Enter."
+echo
+echo -n "  -> "
+read rawpath
+path=`python3 interpreter_path.py "$rawpath"`
+fname=`python3 interpreter_name.py "$rawpath"`
+cd $path
+~/fefss/send/serv_send_gui.out "$fname" < "$path""$fname"
+sleep 10s

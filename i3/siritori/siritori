@@ -1,0 +1,14 @@
+#!/bin/bash
+cd ~/siritori
+echo -e '\e[1m'
+./siritori_menu.out
+num=$?
+clear
+if test $num = "0"; then
+ bash serv_menu.sh
+else
+ bash client_menu.sh
+fi
+sleep 10
+
+

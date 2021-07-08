@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=FEFSS
+Name[jp]=FEFSS
+Comment=FEFSS
+Icon=/home/hiratayuuya/fefss/icon/icon.png
+Exec=bash /home/hiratayuuya/fefss/menu/shell_menu
+
+Terminal=true

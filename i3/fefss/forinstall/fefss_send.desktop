@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Airdrop_send
+Name[jp]=Airdrop_send
+Comment=Airdrop_send
+Icon=/home/kakeru/fefss/icon/icon_send.PNG
+Exec=bash /home/kakeru/fefss/send/shell_send_desktop
+
+Terminal=true

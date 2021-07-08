@@ -1,0 +1,31 @@
+#!bin/bash
+cd ~/fefss
+echo -e '\e[1m'
+
+echo
+echo "  ■■■■■■  ■■■■■■  ■■■■■■  ■■■■■■  ■■■■■■ "
+echo "  ■       ■       ■       ■       ■      "
+echo "  ■■■■■■  ■■■■■■  ■■■■■■  ■■■■■■  ■■■■■■ "
+echo "  ■       ■       ■            ■       ■ "
+echo "  ■       ■■■■■■  ■       ■■■■■■  ■■■■■■ "
+echo 
+echo "  << Fast and Easy File Sharing System >>"
+echo
+
+echo "  please select menu"
+echo
+echo "   0 -> send a file"
+echo "   1 -> receive a file"
+echo "   2 -> add new address"
+echo "   3 -> delete registered address"
+echo 
+read mode
+case $mode in
+  0) bash send/shell_send_desktop;;
+  1) bash recv/shell_desktop;;
+  2) bash data/data_add_shell;;
+  3) bash data/data_del_shell;;
+  *) echo "undefined"
+     sleep 5
+     exit 1
+esac

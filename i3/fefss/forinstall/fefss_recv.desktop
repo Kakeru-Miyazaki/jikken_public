@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Airdrop_recv
+Name[jp]=Airdrop_recv
+Comment=Airdrop_recv
+Icon=/home/kakeru/fefss/icon/icon_recv.PNG
+Exec=bash /home/kakeru/fefss/recv/shell_desktop
+
+Terminal=true

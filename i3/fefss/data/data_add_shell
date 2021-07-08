@@ -1,0 +1,20 @@
+#!bin/bash
+cd ~/fefss/data
+echo "Your ip-address is below (Please avoid using 127.0.0.1)"
+echo
+ip -4 a| grep -oP '(?<=inet\s)\d+(\.\d+){3}'
+echo
+python3 data_add.py < ipdata.txt > ipdatatmp.txt
+echo "Please tell me the new IP address"
+echo -n " >> "
+read newip
+
+echo "Please tell me it's name"
+echo -n " >> "
+read newname
+echo $newname $newip >> ipdatatmp.txt
+mv ipdatatmp.txt ipdata.txt
+echo
+echo "this is the newest list"
+tail -n +2 ipdata.txt | nl -v 0
+

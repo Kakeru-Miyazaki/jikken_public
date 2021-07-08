@@ -1,0 +1,27 @@
+#!bin/bash
+cd ~/fefss
+echo -e '\e[1m'
+
+echo
+echo "  ■■■■■■  ■■■■■■  ■■■■■■  ■■■■■■  ■■■■■■ "
+echo "  ■       ■       ■       ■       ■      "
+echo "  ■■■■■■  ■■■■■■  ■■■■■■  ■■■■■■  ■■■■■■ "
+echo "  ■       ■       ■            ■       ■ "
+echo "  ■       ■■■■■■  ■       ■■■■■■  ■■■■■■ "
+echo 
+echo "  << Fast and Easy File Sharing System >>"
+echo
+
+~/fefss/menu/menu.out
+mode=$?
+
+case $mode in
+  0) bash send/shell_send_desktop;;
+  1) bash recv/shell_desktop;;
+  2) bash data/data_add_shell;;
+  3) bash data/data_del_shell;;
+  4) exit 0;;
+  *) echo "undefined"
+     sleep 5
+     exit 1
+esac

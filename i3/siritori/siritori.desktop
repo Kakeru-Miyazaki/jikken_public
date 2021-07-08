@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Siritori
+Name[jp]=Siritori
+Comment=Siritori
+Icon=/home/kakeru/siritori/icon/icon.jpg
+Exec=bash /home/kakeru/siritori/siritori
+
+Terminal=true
