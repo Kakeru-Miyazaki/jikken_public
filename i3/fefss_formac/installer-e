@@ -43,11 +43,11 @@ cat ~/fefss/forinstall/add_profile.txt >> ~/.bash_profile || my_error3
 cat ~/fefss/forinstall/add_profile.txt >> ~/.zprofile || my_error3
 
 echo Welcome $username
-sed -i -e "s/hiratayuuya/$username/g" ~/fefss/recv/client_recv.c
-sed -i -e "s/hiratayuuya/$username/g" ~/fefss/recv/client_recv_gui.c
-sed -i -e "s/hiratayuuya/$username/g" ~/fefss/forinstall/fefss_recv.desktop
-sed -i -e "s/hiratayuuya/$username/g" ~/fefss/forinstall/fefss_send.desktop
-sed -i -e "s/hiratayuuya/$username/g" ~/fefss/forinstall/fefss_all.desktop
+sed -i -e "s/kakeru/$username/g" ~/fefss/recv/client_recv.c
+sed -i -e "s/kakeru/$username/g" ~/fefss/recv/client_recv_gui.c
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_recv.desktop
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_send.desktop
+sed -i -e "s/kakeru/$username/g" ~/fefss/forinstall/fefss_all.desktop
 cd ~/fefss/recv
 gcc -g -o client_recv.out client_recv.c || my_error1
 gcc -g -o client_recv_gui.out client_recv_gui.c 
